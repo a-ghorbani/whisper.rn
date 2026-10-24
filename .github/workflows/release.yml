@@ -63,6 +63,7 @@ jobs:
             arm64-v8a/librnwhisper.so \
             arm64-v8a/librnwhisper_v8.so \
             arm64-v8a/librnwhisper_v8fp16_va_2.so \
+            arm64-v8a/librnwhisper_v8fp16_va_2_dotprod.so \
             arm64-v8a/librnwhisper_v8fp16_va_2_hexagon.so \
             armeabi-v7a/librnwhisper.so \
             armeabi-v7a/librnwhisper_vfpv4.so \

@@ -69,11 +69,17 @@ public class RNWhisper {
 
     String cpuFeatures = getCpuFeatures();
     boolean hasFp16 = cpuFeatures.contains("fp16") || cpuFeatures.contains("fphp");
+    boolean hasDotProd = cpuFeatures.contains("asimddp") || cpuFeatures.contains("dotprod");
 
     try {
       if (isArm64V8a()) {
-        if (hasFp16 && isHexagonSupported() && prepareHexagon(context)
+        if (hasFp16 && hasDotProd && isHexagonSupported() && prepareHexagon(context)
             && tryLoadLibrary("rnwhisper_jni_v8fp16_va_2_hexagon")) {
+          libsLoaded = true;
+          return true;
+        }
+
+        if (hasFp16 && hasDotProd && tryLoadLibrary("rnwhisper_jni_v8fp16_va_2_dotprod")) {
           libsLoaded = true;
           return true;
         }

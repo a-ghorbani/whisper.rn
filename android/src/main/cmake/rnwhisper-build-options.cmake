@@ -59,7 +59,8 @@ function(rnwhisper_android_variants out_var)
     set(variants "rnwhisper|generic|")
     if (ANDROID_ABI STREQUAL "arm64-v8a")
         list(APPEND variants
-            "rnwhisper_v8fp16_va_2_hexagon|arm|-march=armv8.2-a+fp16"
+            "rnwhisper_v8fp16_va_2_hexagon|arm|-march=armv8.2-a+fp16+dotprod"
+            "rnwhisper_v8fp16_va_2_dotprod|arm|-march=armv8.2-a+fp16+dotprod"
             "rnwhisper_v8fp16_va_2|arm|-march=armv8.2-a+fp16"
             "rnwhisper_v8|arm|-march=armv8-a"
         )
